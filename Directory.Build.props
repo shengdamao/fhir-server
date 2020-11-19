@@ -14,7 +14,7 @@
     <TargetLatestRuntimePatch>true</TargetLatestRuntimePatch>
     <SdkPackageVersion>3.1.11</SdkPackageVersion>
     <HealthcareSharedPackageVersion>1.1.1</HealthcareSharedPackageVersion>
-    <Hl7FhirVersion>1.9.0</Hl7FhirVersion>
+    <Hl7FhirVersion>2.0.3</Hl7FhirVersion>
   </PropertyGroup>
 
   <PropertyGroup Condition=" '$(EnableSourceLink)' == 'true' ">

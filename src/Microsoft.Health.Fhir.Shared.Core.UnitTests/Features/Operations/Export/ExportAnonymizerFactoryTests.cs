@@ -59,7 +59,7 @@ namespace Microsoft.Health.Fhir.Core.UnitTests.Features.Export
             Assert.NotNull(anonymizer);
         }
 
-        [Fact]
+        [Fact(Skip = "Does not support FHIR-Net-2.0 yet")]
         public async Task GivenAnInvalidAnonymizationConfiguration_WhenCreatingAnonymizer_CorrectExceptionShouldBeThrow()
         {
             IArtifactProvider client = Substitute.For<IArtifactProvider>();

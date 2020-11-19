@@ -10,6 +10,7 @@ using System.Net;
 using Hl7.Fhir.Model;
 using Microsoft.Health.Core.Extensions;
 using Microsoft.Health.Fhir.Client;
+using Microsoft.Health.Fhir.Core.Models;
 using Microsoft.Health.Fhir.Tests.Common;
 using Microsoft.Health.Fhir.Tests.Common.FixtureParameters;
 using Microsoft.Health.Test.Utilities;
@@ -53,7 +54,7 @@ namespace Microsoft.Health.Fhir.Tests.E2E.Rest.Search
             {
                 // if the SearchParameter exists, we should delete it and recreate it
                 var searchParamBundle = await Client.SearchAsync(ResourceType.SearchParameter, $"url={searchParam.Url}");
-                if (searchParamBundle.Resource?.Entry[0] != null && searchParamBundle.Resource?.Entry[0].Resource.ResourceType == ResourceType.SearchParameter)
+                if (searchParamBundle.Resource?.Entry[0] != null && searchParamBundle.Resource?.Entry[0].Resource.TypeName == KnownResourceTypes.SearchParameter)
                 {
                     await DeleteSearchParameterAndVerify(searchParamBundle.Resource?.Entry[0].Resource as SearchParameter);
                     searchParamPosted = await Client.CreateAsync(searchParam);

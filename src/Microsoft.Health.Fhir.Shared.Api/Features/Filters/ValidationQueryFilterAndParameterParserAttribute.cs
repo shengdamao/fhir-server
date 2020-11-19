@@ -69,7 +69,7 @@ namespace Microsoft.Health.Fhir.Api.Features.Filters
 
             if (context.ActionArguments.TryGetValue(KnownActionParameterNames.Resource, out var parsedModel))
             {
-                if (((Resource)parsedModel).ResourceType == ResourceType.Parameters)
+                if (((Resource)parsedModel).TypeName == KnownResourceTypes.Parameters)
                 {
                     ParseParameters((Parameters)parsedModel, ref profile, ref mode);
                 }
