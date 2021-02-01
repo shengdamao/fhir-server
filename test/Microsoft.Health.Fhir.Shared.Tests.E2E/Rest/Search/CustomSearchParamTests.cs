@@ -111,10 +111,6 @@ namespace Microsoft.Health.Fhir.Tests.E2E.Rest.Search
             try
             {
                 searchParamPosted = await Client.CreateAsync(searchParam);
-                searchParamPosted.Resource.Name = "foo2";
-                searchParamPosted.Resource.Url = "http://hl7.org/fhir/SearchParameter/Patient-foo2";
-                searchParamPosted.Resource.Code = "foo2";
-                searchParamPosted = await Client.UpdateAsync(searchParamPosted.Resource);
             }
             catch (Exception)
             {
@@ -130,6 +126,12 @@ namespace Microsoft.Health.Fhir.Tests.E2E.Rest.Search
                     throw;
                 }
             }
+
+            // now update the new search parameter
+            searchParamPosted.Resource.Name = "foo2";
+            searchParamPosted.Resource.Url = "http://hl7.org/fhir/SearchParameter/Patient-foo2";
+            searchParamPosted.Resource.Code = "foo2";
+            searchParamPosted = await Client.UpdateAsync(searchParamPosted.Resource);
 
             Uri reindexJobUri;
             FhirResponse<Parameters> reindexJobResult;
